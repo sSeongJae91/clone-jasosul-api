@@ -8,12 +8,8 @@
 ## Librarys
 - <strong>bycrypt : encrypt token</strong>
 - <strong>jsonwebtoken : json web token</strong>
-</br>
-$ npm install bcryptjs jsonwebtoken
-</br>
+    - $ npm install bcryptjs jsonwebtoken
 - <strong>momentjs</strong>
-$ npm install moment
-</br>
+    - $ npm install moment
 - <strong>jwttoken decode : token decode</strong>
-$ npm install jwt-decode
-</br>
+    - $ npm install jwt-decode
