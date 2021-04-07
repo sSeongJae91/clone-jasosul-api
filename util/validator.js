@@ -58,7 +58,7 @@ module.exports.validateLoginInput = (
     }
 
     return {
-        error,
+        errors,
         valid: Object.keys(erorrs).length < 1
     }
 };

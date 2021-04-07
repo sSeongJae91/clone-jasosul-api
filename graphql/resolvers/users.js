@@ -19,12 +19,12 @@ function generateToken(user) {
 
 module.exports = {
     Query: {
-        async profile(_, email, context, info) {
+        async getUserInfo(_, id, context, info) {
 
-            const user = await User.findOne({email});
+            const user = await User.findById(id);
 
             if(!user) {
-                throw new Error('Cannot find User Error');
+                throw new UserInputError('Cannot find User Error');
             }
 
             const token = generateToken(user);

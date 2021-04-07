@@ -1,3 +1,9 @@
+## skill set
+
+- react - frontEnd
+- apollo & graphQL - backEnd
+- mongoose - DB
+
 ## VSCode extension
 
 - GraphQL
