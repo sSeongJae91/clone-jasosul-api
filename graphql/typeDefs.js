@@ -1,6 +1,8 @@
 const {gql} = require('apollo-server');
 
 module.exports = gql`
+    scalar Date
+
     type Post {
         id: ID!
         body: String!
@@ -9,7 +11,7 @@ module.exports = gql`
         id: ID!
         body: String!
         username: String!
-        createdAt: String!
+        createdAt: Date!
         company: String!
     }
     type Job {
@@ -20,7 +22,7 @@ module.exports = gql`
         email: String!
         token: String!
         username: String!
-        createdAt: String!
+        createdAt: Date!
     }
     input RegisterInput {
         username: String!
