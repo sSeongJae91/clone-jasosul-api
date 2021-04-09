@@ -38,6 +38,35 @@ module.exports = {
         }
     },
     Mutation: {
+        async login(_, {email, password}) {
+            const {valid, errors} = validateLoginInput(email, password);
+
+            if(!valid) {
+                throw new UserInputError('Errors', {errors});
+            }
+
+            const user = await User.findOne({email});
+
+            if(!user) {
+                errors.general = 'User not found';
+                throw new UserInputError('Wrong credential', {errors});
+            }
+
+            const match = await bcrypt.compare(password, user.password);
+
+            if(!match) {
+                errors.general = 'Wrong credential';
+                throw new UserInputError('Wrong credential', {errors});
+            }
+
+            const token = generateToken(user);
+
+            return {
+                ...user._doc,
+                id: user.id,
+                token
+            }
+        },
         async register(_, {
             registerInput: {email, username, password, confirmPassword}
         }, context, info) {

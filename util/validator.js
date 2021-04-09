@@ -19,14 +19,13 @@ module.exports.validateRegisterInput = (
     password,
     confirmPassword
 ) => {
-
     const errors = {};
 
     if(username.trim() === '') {
         errors.username = 'confirm Username';
     }
 
-    if(validEmail(email)) {
+    if(!validEmail(email)) {
         errors.email = 'confirm Email';
     }
 
@@ -38,7 +37,7 @@ module.exports.validateRegisterInput = (
 
     return {
         errors,
-        valid: Object.keys(error).length < 1
+        valid: Object.keys(errors).length < 1
     }
 };
 

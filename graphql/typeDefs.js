@@ -33,9 +33,12 @@ module.exports = gql`
     type Query {
         findMyPost(id: ID!): User!
         getUserInfo(id: ID!): User!
+        getMessages(company: String!): Chat!
     }
     type Mutation {
         register(registerInput: RegisterInput): User!
         posting(body: String!): Post!
+        postMessage(body: String!): Chat!
+        login(email: String!, password: String!): User!
     }
 `;
