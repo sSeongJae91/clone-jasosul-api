@@ -3,7 +3,7 @@ const {model, Schema} = require('mongoose');
 const postSchema = new Schema({
     body: String,
     username: String,
-    createdAt: String,
+    createdAt: Date,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'

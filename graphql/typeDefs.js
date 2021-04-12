@@ -11,8 +11,8 @@ module.exports = gql`
         id: ID!
         body: String!
         username: String!
-        createdAt: Date!
         company: String!
+        createdAt: Date!
     }
     type Job {
         id: ID!
@@ -33,12 +33,13 @@ module.exports = gql`
     type Query {
         findMyPost(id: ID!): User!
         getUserInfo(id: ID!): User!
-        getMessages(company: String!): Chat!
+        getMessages(company: String!, first: Int!, offset: Int!): [Chat]!
+        getJobAnnounce(company: String!): Job!
     }
     type Mutation {
         register(registerInput: RegisterInput): User!
         posting(body: String!): Post!
-        postMessage(body: String!): Chat!
+        postMessage(body: String!, company: String!): Chat!
         login(email: String!, password: String!): User!
     }
 `;

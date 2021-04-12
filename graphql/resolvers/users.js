@@ -44,7 +44,7 @@ module.exports = {
             if(!valid) {
                 throw new UserInputError('Errors', {errors});
             }
-
+            console.log("email", email);
             const user = await User.findOne({email});
 
             if(!user) {

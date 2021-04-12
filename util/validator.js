@@ -48,7 +48,7 @@ module.exports.validateLoginInput = (
 
     const errors = {};
 
-    if(validEmail(email)) {
+    if(!validEmail(email)) {
         errors.email = 'confirm Email';
     }
 
@@ -58,7 +58,7 @@ module.exports.validateLoginInput = (
 
     return {
         errors,
-        valid: Object.keys(erorrs).length < 1
+        valid: Object.keys(errors).length < 1
     }
 };
 
