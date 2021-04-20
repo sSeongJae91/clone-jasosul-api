@@ -7,9 +7,11 @@ module.exports = {
     Query: {
         async getMessages(_, {company, first, offset}, context, info) {
 
+            console.log("context", context);
+            console.log("info", info);
+
             try {
                 const messages = await Chat.find({company}).sort({ createdAt : -1 }).skip(first).limit(offset);
-                console.log(messages);
 
                 return messages;
             } catch (error) {

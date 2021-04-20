@@ -9,9 +9,7 @@ module.exports = {
 
             const myPosts = Post.findOne({id});
 
-            return {
-                ...myPosts.doc_
-            } 
+            return myPosts;
         }
     },
     Mutation: {
@@ -32,7 +30,7 @@ module.exports = {
                 username: user.username,
                 createdAt: new Date(),
                 job: job.id
-            })
+            });
 
             const post = await newPost.save();
 

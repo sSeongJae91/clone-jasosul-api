@@ -68,14 +68,20 @@ module.exports = {
             }
         },
         async register(_, {
-            registerInput: {email, username, password, confirmPassword}
+            registerInput: {email, password, confirmPassword}
         }, context, info) {
+
+            const nameArr = ['aa', 'bb', 'cc'];
+
+            const username = nameArr[Math.floor(Math.random() * nameArr.length)];
+
+            console.log(username);
             const {valid, errors} = validateRegisterInput(email, username, password, confirmPassword);
 
             if(!valid) {
                 throw new UserInputError('Errors', {errors});
             }
-
+            
             const user = await User.findOne({email});
 
             if(user) {
